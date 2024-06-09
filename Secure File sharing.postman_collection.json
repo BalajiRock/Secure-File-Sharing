@@ -1,0 +1,499 @@
+{
+	"info": {
+		"_postman_id": "71b95d07-fa96-4e6c-bbf1-e8bb8e60b529",
+		"name": "Secure File sharing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26269340"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/login/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_name\" : \"Balaji\",\r\n    \"password\": \"12345678\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"login",
+						""
+					]
+				},
+				"description": "Successfull login"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/login/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_name\" : \"Rock\",\r\n    \"password\": \"12345678\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"login",
+						""
+					]
+				},
+				"description": "Failed login - no user found"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/login/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_name\" : \"Balaji\",\r\n    \"password\": \"12345678910\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"login",
+						""
+					]
+				},
+				"description": "Failed login - username and password mismatch"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/signUp/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_name\":\"Balaji Rock 1\",\r\n    \"user_email\":\"balajiagmohan@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/signUp/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"signUp",
+						""
+					]
+				},
+				"description": "Sign up \r\nSuccessful"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/signUp/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_name\":\"Balaji\",\r\n    \"user_email\":\"balajiagmohan@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/signUp/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"signUp",
+						""
+					]
+				},
+				"description": "Sign up \r\nfailed - user name already exists"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/emailVerification?user_name=example&token=rf8zQ9CNGd3zMxl5Tvv5sr8k0ZQf0tbKEFxeU8dilLw=",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/emailVerification?user_name=example&token=rf8zQ9CNGd3zMxl5Tvv5sr8k0ZQf0tbKEFxeU8dilLw=",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"emailVerification"
+					],
+					"query": [
+						{
+							"key": "user_name",
+							"value": "example"
+						},
+						{
+							"key": "token",
+							"value": "rf8zQ9CNGd3zMxl5Tvv5sr8k0ZQf0tbKEFxeU8dilLw="
+						}
+					]
+				},
+				"description": "Email verification\r\nSuccessful"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/upload/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_name",
+							"value": "Balaji",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Balaji M/Desktop/PROJECTS/Secure File Sharing system/data.docx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/upload/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"upload",
+						""
+					]
+				},
+				"description": "File Upload\r\nSuccessful - file type docx"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/upload/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_name",
+							"value": "Balaji",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Balaji M/Desktop/PROJECTS/Secure File Sharing system/data.xlsx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/upload/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"upload",
+						""
+					]
+				},
+				"description": "File Upload\r\nSuccessful - file type - xlxs"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/upload/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_name",
+							"value": "Balaji",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Balaji M/Desktop/PROJECTS/Secure File Sharing system/example.pptx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/upload/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"upload",
+						""
+					]
+				},
+				"description": "File Upload\r\nSuccessful - File type - pptx"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/upload/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_name",
+							"value": "Balaji",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Balaji M/Desktop/PROJECTS/Secure File Sharing system/data.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/upload/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"upload",
+						""
+					]
+				},
+				"description": "File Upload\r\nFailed - Restricted file type - pdf "
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/allUploadedFiles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/allUploadedFiles",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"allUploadedFiles"
+					]
+				},
+				"description": "Retrive all the uploaded files"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/generate-download-url?user_name=Balaji&file_name=example.pptx_20240609225547.pptx",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/generate-download-url?user_name=Balaji&file_name=data.xlsx_20240609225929.xlsx",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"generate-download-url"
+					],
+					"query": [
+						{
+							"key": "user_name",
+							"value": "Balaji"
+						},
+						{
+							"key": "file_name",
+							"value": "data.xlsx_20240609225929.xlsx"
+						}
+					]
+				},
+				"description": "Generate Url link \r\nuser - client user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/download/.eJxTqo5RSsvMSY3PS8xNjVGyUohRSkksSdSryCmuiDcyMDIxMDOwNDIytTSyBIvFKOkAlZQWpxYh6XBKzEnMyoxRqlUCAN9vGJY.ZmXmjQ.SK_2kt2kuBSUDuacoDuKTesWYak",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/download/.eJxTqo5RSsvMSY3PS8xNjVGyUohRSkksSdSryCmuiDcyMDIxMDOwNDIytTSyBIvFKOkAlZQWpxYh6XBKzEnMyoxRqlUCAN9vGJY.ZmXmjQ.SK_2kt2kuBSUDuacoDuKTesWYak",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"download",
+						".eJxTqo5RSsvMSY3PS8xNjVGyUohRSkksSdSryCmuiDcyMDIxMDOwNDIytTSyBIvFKOkAlZQWpxYh6XBKzEnMyoxRqlUCAN9vGJY.ZmXmjQ.SK_2kt2kuBSUDuacoDuKTesWYak"
+					]
+				},
+				"description": "Download file\r\nSuccessful - user client"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/generate-download-url?user_name=Balaji Rock&file_name=data.xlsx_20240609225929.xlsx",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/generate-download-url?user_name=Balaji Rock&file_name=data.xlsx_20240609225929.xlsx",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"generate-download-url"
+					],
+					"query": [
+						{
+							"key": "user_name",
+							"value": "Balaji Rock"
+						},
+						{
+							"key": "file_name",
+							"value": "data.xlsx_20240609225929.xlsx"
+						}
+					]
+				},
+				"description": "Generate Download link\r\nuser - operation (note this link cannot download files)"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/download/.eJxTqo5RSsvMSY3PS8xNjVGyUohRSkksSdSryCmuiDcyMDIxMDOwNDIytTSyBIvFKOkAlZQWpxYh6XBKzEnMylQIyk_OjlGqVQIAX_0aRQ.ZmXm8w.Tv9DbBHSAN4fXmPuTVz2ln3ZgWY",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/download/.eJxTqo5RSsvMSY3PS8xNjVGyUohRSkksSdSryCmuiDcyMDIxMDOwNDIytTSyBIvFKOkAlZQWpxYh6XBKzEnMylQIyk_OjlGqVQIAX_0aRQ.ZmXm8w.Tv9DbBHSAN4fXmPuTVz2ln3ZgWY",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"download",
+						".eJxTqo5RSsvMSY3PS8xNjVGyUohRSkksSdSryCmuiDcyMDIxMDOwNDIytTSyBIvFKOkAlZQWpxYh6XBKzEnMylQIyk_OjlGqVQIAX_0aRQ.ZmXm8w.Tv9DbBHSAN4fXmPuTVz2ln3ZgWY"
+					]
+				},
+				"description": "Download files \r\nFailed - user - operation user"
+			},
+			"response": []
+		}
+	]
+}

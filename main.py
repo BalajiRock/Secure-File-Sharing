@@ -238,6 +238,10 @@ async def upload_file(user_name: str = Form(...),file: UploadFile = File(...)):
     new_filename = f"{original_filename}_{timestamp}{file_extension}"
     file_location = "./Uploaded_Files"
     
+    sql = "INSERT INTO files (user_name,file_name) VALUES (%s, %s)"
+    val = (user_name,new_filename)
+    cursor.execute(sql,val)
+    mydb.commit()    
 
     file_location = os.path.join(UPLOAD_DIRECTORY, new_filename)
     with open(file_location, "wb") as file_object:
