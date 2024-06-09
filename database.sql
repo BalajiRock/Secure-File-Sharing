@@ -15,7 +15,4 @@ CREATE TABLE files(
     user_name int NOT NULL,
     file_name varchar(255) NOT NULL
     PRIMARY KEY(user_name,file_name)
-)
-
--- INSERT INTO user (user_name, user_email,verification_token,salt,hashed_password,user_type) VALUES ("Balaji","balajiagmohan@gmail.com",NULL,)
-    
+)    
