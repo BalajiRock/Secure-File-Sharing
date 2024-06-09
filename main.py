@@ -125,7 +125,16 @@ async def verifyEmail(user_name: str = Query(...), token: str = Query(...)):
 async def user_login(request: Request):
     body = await request.json()
     user_name = body["user_name"]
+    
+    sql = "SELECT * from user WHERE user_name = (%s) "
+    val = (user_name,)
+    cursor.execute(sql,val)
+    if not cursor.fetchone():
+        raise HTTPException(status_code=409, detail="No user found")
+    
     user_passowrd = body["password"]
+    
+    
     sql = "SELECT hashed_password,salt from user WHERE user_name = (%s) "
     val = (user_name,)
     # This query format is SQL injection resistant.
@@ -139,8 +148,8 @@ async def user_login(request: Request):
 
 
 @app.get("/allUploadedFiles")
-async def user_login():
-    sql = "SELECT file from files"
+async def getAllfiles():
+    sql = "SELECT file_name from files"
     cursor.execute(sql)
     filesFetched = cursor.fetchall()
     return filesFetched
@@ -182,7 +191,7 @@ async def generate_download_url(user_name: str = Query(...), file_name: str = Qu
         data = json.dumps({"file_name":file_name,"user_name":user_name})
         token = SIGNER.dumps(data)
         download_url = f"http://127.0.0.1:8000/download/{token}"
-        return {"download_url": download_url}
+        return {"download_url": download_url,"message" : "Success"}
     else:
         raise HTTPException(status_code=404, detail="File not found")
 

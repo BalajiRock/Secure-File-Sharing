@@ -12,7 +12,7 @@ CREATE TABLE user(
 )
 
 CREATE TABLE files(
-    user_name int NOT NULL,
+    user_name varchar(255) NOT NULL,
     file_name varchar(255) NOT NULL
     PRIMARY KEY(user_name,file_name)
 )    
